@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>How Much I Spend in NYC</title>
+    <style>
+        @font-face {
+            font-family: 'redaction50';
+            src: url(fonts/Redaction50-Regular.woff2);
+        
+        }
+        body {
+            font-size: 20px;
+            color: whitesmoke;
+            background-image: url(receiptscans/yourscannedfilesareattached/BookScanCenter_4.png);
+            background-size: contain; /* Ensures the image covers the entire page */
+            background-position: center center; /* Centers the image */
+            background-repeat: no-repeat; 
+            margin: 0;
+            padding: 0;
+            font-family: redaction50;
+        }
+        .header {
+            font-family: 'redaction50';
+            background-color: #b2b2b1;
+            color: black;
+            text-align: left;
+            padding: 20px;
+            font-size: 40px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1;
+        }
+
+        #container {
+            margin-top: 60px; 
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            height: 90vh; 
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gridPage {
+            display: none; 
+            width: 100%;
+            height: 100%;
+            flex-direction:column
+        }
+        .gridPage h2 {
+            font-size: 2rem;
+            color: rgb(0, 0, 0);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gridPage.active {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+        }
+
+        #gridContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 90%;
+            gap: 10px;
+        }
+
+        .square {
+    display: flex;
+    text-align: left;
+    background-color: #b2b2b1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgb(247, 0, 0);
+    width: 100px;
+    height: 100px;
+    border: 2px solid #959494; /* Border with width and color */
+    border-radius: 0px;
+    margin: -1px;
+    transition: transform 0.3s ease;
+    padding: 5px;
+}
+/* General styling for all squares */
+.square {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    image-rendering: pixelated;
+    display: inline-block;
+    justify-content: flex-start; /* Align content to the left */
+    align-items: flex-start;
+    line-height: 18px;
+    cursor: pointer;
+}
+/* Background images for each square */
+.square-1 {
+    background-image: url('receiptscans/WEEK%201/ipaddither.png');
+}
+.square-2 {
+    background-image: url('receiptscans/WEEK%203/notanormalmarket.png');
+}
+.square-3 {
+    background-image: url('receiptscans/WEEK%203/hmartdessert.png');
+}
+
+.square-4 {
+    background-image: url('receiptscans/WEEK%204/burger.png');
+}
+
+.square-5 {
+    background-image: url('receiptscans/WEEK%204/lacolombedraft.png');
+}
+.square-6 {
+    background-image: url('photos/sep18hmart.png');
+}
+.square-7 {
+    background-image: url('receiptscans/WEEK%204/tjsep16.png');
+}
+.square-8 {
+    background-image: url('receiptscans/WEEK%204/sep20coffeedither.png');
+}
+.square-9 {
+    background-image: url('photos/coppermugdither.png');
+}
+.square-10 {
+    background-image: url('photos/luckylucky.png');
+}
+.square-11 {
+    background-image: url('photos/newsbarsandy.png');
+}
+.square-12 {
+    background-image: url('photos/lovemidither.png');
+}
+.square-13 {
+    background-image: url('photos/sep27.png');
+}
+.square-14 {
+    background-image: url('photos/tacosdither.png');
+}
+.square-15 {
+    background-image: url('photos/sep30dither.png');
+}
+.square-16 {
+    background-image: url('photos/pinkberry.png');
+}
+.square-17 {
+    background-image: url('photos/oct3dither.png');
+}
+.square-18 {
+    background-image: url('photos/megbday.png');
+}
+.square-20 {
+    background-image: url('photos/sanmarzano.png');
+}
+.square-21 {
+    background-image: url('photos/oct8.png');
+}
+.square-22 {
+    background-image: url('photos/oct9.png');
+}
+.square-23 {
+    background-image: url('photos/oct14.png');
+}
+.square-24 {
+    background-image: url('photos/cava.png');
+}
+.square-25 {
+    background-image: url('photos/oct18.png');
+}
+.square-26 {
+    background-image: url('photos/winson.png');
+}
+.square-27 {
+    background-image: url('photos/oct21dither.png');
+}
+.square-28 {
+    background-image: url('photos/oct23.png');
+}
+.square-29 {
+    background-image: url('photos/oct24dither.png');
+}
+.square-30 {
+    background-image: url('photos/oct25.png');
+}
+.square-31 {
+    background-image: url('photos/oct26dither.png');
+}
+.square-32 {
+    background-image: url('photos/oct28.png');
+}
+.square-33 {
+    background-image: url('photos/oct29dither.png');
+}
+.square-34 {
+    background-image: url('photos/oct30dither.png');
+}
+.square-35 {
+    background-image: url('photos/oct31dither.png');
+}
+.square-36 {
+    background-image: url('photos/nov1dither.png');
+}
+.square-38 {
+    background-image: url('photos/nov3dither.png');
+}
+.square-39 {
+    background-image: url('photos/konadither.png');
+}
+.square-41 {
+    background-image: url('photos/breadsbakery.png');
+}
+.square-42 {
+    background-image: url('photos/aug31dither.png');
+}
+.square-43 {
+    background-image: url('photos/aug25dither.png');
+}
+.square-44 {
+    background-image: url('photos/aug30dither.png');
+}
+.square-45 {
+    background-image: url('photos/sep1dither.png');
+}
+.square-46 {
+    background-image: url('photos/sep6dither.png');
+}
+.square-47 {
+    background-image: url('photos/sep8dither.png');
+}
+.square-48 {
+    background-image: url('photos/sep13dither.png');
+}
+.square-49 {
+    background-image: url('photos/nov10dither.png');
+}
+.square-50 {
+    background-image: url('photos/nov11dither.png');
+}
+.square-51 {
+    background-image: url('photos/nov12dither.png');
+}
+.square-52 {
+    background-image: url('photos/nov13dither.png');
+}
+.square-53 {
+    background-image: url('photos/nov14dither.png');
+}
+.square-54 {
+    background-image: url('photos/nov15dither.png');
+}
+.square-55 {
+    background-image: url('photos/nov18dither.png');
+}
+.square-56 {
+    background-image: url('photos/nov19dither.png');
+}
+.square-57 {
+    background-image: url('photos/nov20dither.png');
+}
+.square-58 {
+    background-image: url('photos/nov27dither.png');
+}
+.square-59 {
+    background-image: url('photos/nov29dither.png');
+}
+.square-60 {
+    background-image: url('photos/dec1.png');
+}
+/* Unique hover effects */
+.square-1:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(253, 96, 96); /* Light red */
+}
+.square-2:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(253, 96, 96); /* Light red */
+}
+.square-3:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(253, 96, 96); /* Light red */
+}
+.square-4:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light green */
+}
+.square-5:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-6:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-7:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light green */
+}
+.square-8:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-9:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light green */
+}
+.square-10:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-11:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-12:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(253, 96, 96); /* Light red */
+}
+.square-13:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-14:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-15:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(253, 96, 96); /* Light red */
+}       
+.square-16:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-17:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(253, 96, 96); /* Light red */
+} 
+.square-18:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-20:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-21:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-22:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-23:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-24:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-25:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-26:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-27:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-28:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-29:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-30:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-31:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-32:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-33:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-34:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-35:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(253, 96, 96); /* Light red */
+}
+.square-36:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-38:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-39:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-41:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-42:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-43:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-44:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-45:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-46:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-47:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-48:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-49:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-50:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-51:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-52:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-53:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-54:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-55:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-56:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-57:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-58:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.square-59:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(121, 201, 60); /* Light blue */
+}
+.square-60:hover {
+    background-image: none; /* Removes image on hover, optional */
+    background-color: rgb(251, 231, 56); /* Light blue */
+}
+.arrow {
+            cursor: pointer;
+            font-size: 4rem;
+            user-select: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(50%);
+            color:#000000
+        }
+        #prevPage {
+    left: 10px; 
+        }
+        #nextPage {
+            right: 10px; 
+        }
+        .flier {
+	pointer-events: none;
+}
+
+.flier > * {
+        animation: fly 50s linear infinite;
+        pointer-events: none !important;
+	top: 0;
+	left: 0;
+	transform: translateX(-110%) translateY(-110%) rotateZ(9);
+	position: fixed;
+	animation-delay: 1s;
+	z-index: 999999;
+    scale: 40%;
+    width: 40%;
+}
+.flier2 > * {
+        animation: fly 40s linear infinite;
+        pointer-events: none !important;
+	top: 0;
+	left: 0;
+	transform: translateX(60%) translateY(-110%) rotateZ(12%);
+	position: fixed;
+	animation-delay: 1s;
+	z-index: 999999;
+    scale: 40%;
+    width: 30%;
+
+}
+
+
+@keyframes fly {
+
+	98.001%, 0% {
+                display: block;
+		transform: translateX(-200%) translateY(100vh) rotateZ(0deg)
+	}
+
+	15% {
+		transform: translateX(100vw) translateY(-100%) rotateZ(180deg)
+	}
+
+	15.001%, 18% {
+		transform: translateX(100vw) translateY(-30%) rotateZ(0deg)
+	}
+
+	40% {
+		transform: translateX(-200%) translateY(3vh) rotateZ(-180deg)
+	}
+
+	40.001%, 43% {
+		transform: translateX(-200%) translateY(-100%) rotateZ(-180deg)
+	}
+
+	65% {
+		transform: translateX(100vw) translateY(50vh) rotateZ(0deg)
+	}
+
+	65.001%, 68% {
+		transform: translateX(20vw) translateY(-200%) rotateZ(180deg)
+	}
+
+	95% {
+		transform: translateX(10vw) translateY(100vh) rotateZ(0deg)
+	}
+}
+@keyframes fly2 {
+    98.001%, 0% {
+                display: block;
+		transform: translateX(100%) translateY(100vh) rotateZ(0deg)
+	}
+
+	20% {
+		transform: translateX(100vw) translateY(-100%) rotateZ(180deg)
+	}
+
+	15.001%, 18% {
+		transform: translateX(100vw) translateY(-30%) rotateZ(0deg)
+	}
+
+	40% {
+		transform: translateX(-200%) translateY(3vh) rotateZ(-180deg)
+	}
+
+	40.001%, 43% {
+		transform: translateX(-200%) translateY(-100%) rotateZ(-180deg)
+	}
+
+	65% {
+		transform: translateX(100vw) translateY(50vh) rotateZ(0deg)
+	}
+
+	65.001%, 68% {
+		transform: translateX(50vw) translateY(-200%) rotateZ(180deg)
+	}
+
+	95% {
+		transform: translateX(10vw) translateY(100vh) rotateZ(0deg)
+	}
+        }
+
+.color-key {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    background-color: #000000;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: auto;
+    color: rgb(255, 255, 255);
+    font-family: redaction50, sans-serif;
+}
+.color-key h3 {
+    margin-top: 0;
+    margin-bottom: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+/* Style for individual color items */
+.color-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* Style for the color box representing each day */
+.color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 1px solid #ffffff;
+}
+.color-item span {
+    font-size: 16px;
+    line-height: 20px;
+}
+    </style>
+</head>
+<body>
+
+    <div class="header">How Much I Spend in NYC</div>
+    <div id="container">
+        <span class="arrow" id="prevPage">&larr;</span>
+        <div class="gridPage active august" id="page1">
+            <h2>August</h2>
+            <div id="gridContainer">
+                <div class="square">1</div>
+                <div class="square">2</div>
+                <div class="square">3</div>
+                <div class="square">4</div>
+                <div class="square">5</div>
+                <div class="square">6</div>
+                <div class="square">7</div>
+                <div class="square">8</div>
+                <div class="square">9</div>
+                <div class="square">10</div>
+                <div class="square">11</div>
+                <div class="square">12</div>
+                <div class="square">13</div>
+                <div class="square">14</div>
+                <div class="square">15</div>
+                <div class="square">16</div>
+                <div class="square">17</div>
+                <div class="square">18</div>
+                <div class="square">19</div>
+                <div class="square">20</div>
+                <div class="square">21</div>
+                <div class="square">22</div>
+                <div class="square">23</div>
+                <div class="square">24</div>
+                <div class="square square-43" onclick="location.href='link42.html'">25</div>
+                <div class="square">26</div>
+                <div class="square">27</div>
+                <div class="square">28</div>
+                <div class="square square-1" onclick="location.href='link43.html'">29</div>
+                <div class="square square-44" onclick="location.href='link44.html'">30</div>
+                <div class="square square-42" onclick="location.href='link1.html'">31</div>
+            </div>
+        </div>
+        <div class="gridPage september" id="page4">
+            <h2>September</h2>
+            <div id="gridContainer">
+                <div class="square square-45" onclick="location.href='link45.html'">1</div>
+                <div class="square">2</div>
+                <div class="square">3</div>
+                <div class="square">4</div>
+                <div class="square">5</div>
+                <div class="square square-46" onclick="location.href='link46.html'">6</div>
+                <div class="square">7</div>
+                <div class="square">8</div>
+                <div class="square square-47" onclick="location.href='link47.html'">9</div>
+                <div class="square">10</div>
+                <div class="square">11</div>
+                <div class="square">12</div>
+                <div class="square square-48" onclick="location.href='link48.html'">13</div>
+                <div class="square square-2" onclick="location.href='link2.html'">14</div>
+                <div class="square square-3" onclick="location.href='link3.html'">15</div>
+                <div class="square square-7" onclick="location.href='link4.html'">16</div>
+                <div class="square">17</div>
+                <div class="square square-6" onclick="location.href='link5.html'">18</div>
+                <div class="square square-4" onclick="location.href='link6.html'">19</div>
+                <div class="square square-8" onclick="location.href='link7.html'">20</div>
+                <div class="square square-5" onclick="location.href='link8.html'">21</div>
+                <div class="square square-9" onclick="location.href='link9.html'">22</div>
+                <div class="square">23</div>
+                <div class="square square-10" onclick="location.href='link10.html'">24</div>
+                <div class="square square-11" onclick="location.href='link11.html'">25</div>
+                <div class="square square-12" onclick="location.href='link12.html'">26</div>
+                <div class="square square-13" onclick="location.href='link13.html'">27</div>
+                <div class="square square-14" onclick="location.href='link14.html'">28</div>
+                <div class="square">29</div>
+                <div class="square square-15" onclick="location.href='link15.html'">30</div>
+            </div>
+        </div>
+
+
+        <div class="gridPage october" id="page2">
+            <h2>October</h2>
+            <div id="gridContainer">
+                <div class="square">1</div>
+                <div class="square square-16" onclick="location.href='link16.html'">2</div>
+                <div class="square square-17" onclick="location.href='link17.html'">3</div>
+                <div class="square">4</div>
+                <div class="square square-18" onclick="location.href='link18.html'">5</div>
+                <div class="square" onclick="location.href='link19.html'">6</div>
+                <div class="square square-20" onclick="location.href='link20.html'">7</div>
+                <div class="square square-21" onclick="location.href='link21.html'">8</div>
+                <div class="square square-22" onclick="location.href='link22.html'">9</div>
+                <div class="square">10</div>
+                <div class="square">11</div>
+                <div class="square">12</div>
+                <div class="square">13</div>
+                <div class="square square-23" onclick="location.href='link24.html'">14</div>
+                <div class="square">15</div>
+                <div class="square">16</div>
+                <div class="square square-24" onclick="location.href='link25.html'">17</div>
+                <div class="square square-25" onclick="location.href='link26.html'">18</div>
+                <div class="square square-26" onclick="location.href='link27.html'">19</div>
+                <div class="square">20</div>
+                <div class="square square-27" onclick="location.href='link28.html'">21</div>
+                <div class="square">22</div>
+                <div class="square square-28" onclick="location.href='link29.html'">23</div>
+                <div class="square square-29" onclick="location.href='link30.html'">24</div>
+                <div class="square square-30" onclick="location.href='link31.html'">25</div>
+                <div class="square square-31" onclick="location.href='link32.html'">26</div>
+                <div class="square">27</div>
+                <div class="square square-32" onclick="location.href='link33.html'">28</div>
+                <div class="square square-33" onclick="location.href='link34.html'">29</div>
+                <div class="square square-34" onclick="location.href='link35.html'">30</div>
+                <div class="square square-35" onclick="location.href='link36.html'">31</div>
+            </div>
+        </div>
+
+        <div class="gridPage november" id="page3">
+            <h2>November</h2>
+            <div id="gridContainer">
+                <div class="square square-36" onclick="location.href='link37.html'">1</div>
+                <div class="square">2</div>
+                <div class="square square-38" onclick="location.href='link38.html'">3</div>
+                <div class="square">4</div>
+                <div class="square">5</div>
+                <div class="square square-40" onclick="location.href='link39.html'">6</div>
+                <div class="square square-39" onclick="location.href='link40.html'">7</div>
+                <div class="square square-41" onclick="location.href='link41.html'">8</div>
+                <div class="square">9</div>
+                <div class="square square-49" onclick="location.href='link49.html'">10</div>
+                <div class="square square-50" onclick="location.href='link50.html'">11</div>
+                <div class="square square-51" onclick="location.href='link51.html'">12</div>
+                <div class="square square-52" onclick="location.href='link52.html'">13</div>
+                <div class="square square-53" onclick="location.href='link53.html'">14</div>
+                <div class="square square-54" onclick="location.href='link54.html'">15</div>
+                <div class="square">16</div>
+                <div class="square">17</div>
+                <div class="square square-55" onclick="location.href='link55.html'">18</div>
+                <div class="square square-56" onclick="location.href='link56.html'">19</div>
+                <div class="square square-57" onclick="location.href='link57.html'">20</div>
+                <div class="square">21</div>
+                <div class="square">22</div>
+                <div class="square">23</div>
+                <div class="square">24</div>
+                <div class="square">25</div>
+                <div class="square">26</div>
+                <div class="square square-58" onclick="location.href='link58.html'">27</div>
+                <div class="square">28</div>
+                <div class="square square-59" onclick="location.href='link59.html'">29</div>
+                <div class="square">30</div>
+            </div>
+        </div>
+
+        <!-- Grid Page 4 -->
+        <div class="gridPage december" id="page4">
+            <h2>December</h2>
+            <div id="gridContainer">
+                <div class="square square-60" onclick="location.href='link60.html'">1</div>
+                <div class="square">2</div>
+                <div class="square">3</div>
+                <div class="square">4</div>
+                <div class="square">5</div>
+                <div class="square">6</div>
+                <div class="square">7</div>
+                <div class="square">8</div>
+                <div class="square">9</div>
+                <div class="square">10</div>
+                <div class="square">11</div>
+                <div class="square">12</div>
+                <div class="square">13</div>
+                <div class="square">14</div>
+                <div class="square">15</div>
+                <div class="square">16</div>
+                <div class="square">17</div>
+                <div class="square">18</div>
+                <div class="square">19</div>
+                <div class="square">20</div>
+                <div class="square">21</div>
+                <div class="square">22</div>
+                <div class="square">23</div>
+                <div class="square">24</div>
+                <div class="square">25</div>
+                <div class="square">26</div>
+                <div class="square">27</div>
+                <div class="square">28</div>
+                <div class="square">29</div>
+                <div class="square">30</div>
+                <div class="square">31</div>
+            </div>
+        </div>
+
+        <span class="arrow" id="nextPage">&rarr;</span>
+    </div>
+    <div class="flier"><img src="receiptscans/WEEK10/oct31-reminiscence.png" alt=""></div>
+    <div class="flier2"><img src="receiptscans/WEEK6/oct2-tea.png"></div>
+
+    <div class="color-key">
+        <h3>preview color key</h3>
+        <div class="color-item">
+            <div class="color-box" style="background-color: rgb(121, 201, 60);"></div>
+            <span>$1 - $20</span>
+        </div>
+        <div class="color-item">
+            <div class="color-box" style="background-color: rgb(251, 231, 56);"></div>
+            <span>$21 - $99</span>
+        </div>
+        <div class="color-item">
+            <div class="color-box" style="background-color: rgb(253, 96, 96);"></div>
+            <span>$100+</span>
+        </div>
+
+    <script>
+        let currentPage = 0;
+        const pages = document.querySelectorAll('.gridPage');
+        const prevPageButton = document.getElementById('prevPage');
+        const nextPageButton = document.getElementById('nextPage');
+
+        function updatePage() {
+    pages.forEach(page => page.classList.remove('active'));
+    pages[currentPage].classList.add('active');
+    prevPageButton.classList.toggle('disabled', currentPage === 0);
+    nextPageButton.classList.toggle('disabled', currentPage === pages.length - 1);
+    sessionStorage.setItem('currentPage', currentPage); 
+}
+
+prevPageButton.addEventListener('click', () => {
+    if (currentPage > 0) {
+        currentPage--;
+        updatePage();
+    }
+});
+
+nextPageButton.addEventListener('click', () => {
+    if (currentPage < pages.length - 1) {
+        currentPage++;
+        updatePage();
+    }
+});
+
+function goToLink(link) {
+    sessionStorage.setItem('currentPage', currentPage); // Store current page before navigating
+    window.location.href = link; // Navigate to the link
+}
+
+// Corrected window.onload function
+window.onload = function() {
+    const savedPage = sessionStorage.getItem('currentPage');
+    if (savedPage) {
+        currentPage = parseInt(savedPage);
+    }
+    updatePage(); // Call updatePage to reflect the saved page
+};
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>October 19, 2024</title>
+            <style>
+            @font-face {
+             font-family: 'Anthony';
+             src: url(fonts/Anthony.woff2);
+             src: url(fonts/Anthony.woff);
+         }  
+     .container{
+         display: flex;
+         align-items: flex-start;
+         padding: 20px;
+         justify-content: center;
+     }
+     .text{
+         margin-left: 12px;
+         font-family: Arial, Helvetica, sans-serif;
+         line-height: 1.6;
+     }
+     .header{
+         background-color: black;
+         color: white;
+         font-family: Anthony;
+         text-align: center;
+     }
+     body{
+         background-color: black;
+         color: white;
+     }
+     /* 3D container for the flip effect */
+     .flip-container {
+                perspective: 1000px; /* Gives a 3D effect */
+                width: 300px;
+                height: 500px;
+            }
+
+            /* Image container with flip effect */
+            .flip-container .flip-inner {
+                width: 100%;
+                height: 100%;
+                transition: transform 0.6s;
+                transform-style: preserve-3d; /* Maintain 3D space for children */
+            }
+
+            /* Front and back faces of the flip */
+            .flip-container .flip-inner .flip-front,
+            .flip-container .flip-inner .flip-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden; /* Hide the back side when flipped */
+            }
+
+            /* Front face (initial image) */
+            .flip-container .flip-inner .flip-front {
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url('receiptscans/WEEK8/oct19-winson.png');
+                height: 500px; /* Default front image for container 1 */
+            }
+
+            /* Back face (hover image) */
+            .flip-container .flip-inner .flip-back {
+                background-size: cover;
+                background-position: center;
+                background-image: url('photos/IMG_4671.JPG'); /* Hover image for container 1 */
+                transform: rotateY(180deg); /* Initially hidden behind front */
+            }
+              /* Second container images */
+              .flip-container.second .flip-inner .flip-front {
+                background-image: url('receiptscans/WEEK8/oct19-capone.png');
+                height: 400px; /* Front image for container 2 */
+            }
+
+            .flip-container.second .flip-inner .flip-back {
+                background-image: url('photos/IMG_4703.JPG');
+                height: 400px; /* Hover image for container 2 */
+            }
+            /* Hover effect to flip */
+            .flip-container:hover .flip-inner {
+                transform: rotateY(180deg); /* Flip the container */
+            }
+         </style>
+    </head>
+<body>
+    <h1 class="header">October 19, 2024</h1>
+<div class="container">
+    <div class="flip-container">
+        <div class="flip-inner">
+            <!-- Front face (initial state) -->
+            <div class="flip-front"></div>
+            <!-- Back face (hover state) -->
+            <div class="flip-back"></div>
+        </div>
+    </div>
+    <div class="text">1:27 pm: Went to the Win Son Bakery pop up in Union Square with friends to get the scallion BEC and mochi donut <br>Amount spent: $23.05<br>Total spent today: $23.05</div>
+</div>
+<div class="container">
+    <div class="flip-container second">
+        <div class="flip-inner">
+            <!-- Front face (initial state) -->
+            <div class="flip-front"></div>
+            <!-- Back face (hover state) -->
+            <div class="flip-back"></div>
+        </div>
+    </div>
+    <div class="text">4:15 pm: Got coffee before going to an exhibition for class<br>Amount spent: $3.67<br>Total spent today: $26.72</div>
+</div>
+</body>
+</html>

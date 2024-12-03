@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <title>October 23, 2024</title>
+            <style>
+            @font-face {
+             font-family: 'Anthony';
+             src: url(fonts/Anthony.woff2);
+             src: url(fonts/Anthony.woff);
+         }  
+     .container{
+         display: flex;
+         align-items: flex-start;
+         padding: 20px;
+         justify-content: center;
+     }
+     .text{
+         margin-left: 12px;
+         font-family: Arial, Helvetica, sans-serif;
+         line-height: 1.6;
+     }
+     .header{
+         background-color: black;
+         color: white;
+         font-family: Anthony;
+         text-align: center;
+     }
+     body{
+         background-color: black;
+         color: white;
+     }
+     .flip-container {
+                perspective: 1000px; /* Gives a 3D effect */
+                width: 300px;
+                height: 500px;
+            }
+
+            /* Image container with flip effect */
+            .flip-container .flip-inner {
+                width: 100%;
+                height: 100%;
+                transition: transform 0.6s;
+                transform-style: preserve-3d; /* Maintain 3D space for children */
+            }
+
+            /* Front and back faces of the flip */
+            .flip-container .flip-inner .flip-front,
+            .flip-container .flip-inner .flip-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden; /* Hide the back side when flipped */
+            }
+
+            /* Front face (initial image) */
+            .flip-container .flip-inner .flip-front {
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url('receiptscans/WEEK9/oct23-ariston.png');
+                height: 500px; /* Default front image for container 1 */
+            }
+
+            /* Back face (hover image) */
+            .flip-container .flip-inner .flip-back {
+                background-size: cover;
+                background-position: center;
+                background-image: url('photos/oct23ariston.JPG'); /* Hover image for container 1 */
+                transform: rotateY(180deg); /* Initially hidden behind front */
+            }
+              /* Second container images */
+              .flip-container.second .flip-inner .flip-front {
+                background-image: url('receiptscans/WEEK9/oct23-brandy.png');
+                height: 400px; /* Front image for container 2 */
+            }
+
+            .flip-container.second .flip-inner .flip-back {
+                background-image: url('photos/oct23brandy.JPG');
+                height: 400px; /* Hover image for container 2 */
+            }
+                  /* Second container images */
+                  .flip-container.third .flip-inner .flip-front {
+                background-image: url('receiptscans/WEEK9/oct23-hmart.png');
+                height: 400px; /* Front image for container 2 */
+            }
+
+            .flip-container.third .flip-inner .flip-back {
+                background-image: url('photos/oct23hmart.JPG');
+                height: 400px; /* Hover image for container 2 */
+            }
+            /* Hover effect to flip */
+            .flip-container:hover .flip-inner {
+                transform: rotateY(180deg); /* Flip the container */
+            }
+         </style>
+    </head>
+<body>
+    <h1 class="header">October 23, 2024</h1>
+<div class="container">
+    <div class="flip-container">
+        <div class="flip-inner">
+            <!-- Front face (initial state) -->
+            <div class="flip-front"></div>
+            <!-- Back face (hover state) -->
+            <div class="flip-back"></div>
+        </div>
+    </div>
+    <div class="text">1:09 pm: Got a latte for class<br>Amount spent: $6.94<br>Total spent today: $6.94</div>
+</div>
+<div class="container">
+    <div class="flip-container second">
+        <div class="flip-inner">
+            <!-- Front face (initial state) -->
+            <div class="flip-front"></div>
+            <!-- Back face (hover state) -->
+            <div class="flip-back"></div>
+        </div>
+    </div>
+    <div class="text">3:20 pm: Bought a pair of pants at Brandy<br>Amount spent: $42.05<br>Total spent today: $48.99</div>
+</div>
+<div class="container">
+    <img src="receiptscans/WEEK9/oct23-merci.png" alt="merci" width="300">
+    <div class="text">7:02 pm: Got dinner from the hot bar at Merci Market during studio break<br>Amount spent: $7.56<br>Total spent today: $56.55</div>
+</div>
+<div class="container">
+    <div class="flip-container third">
+        <div class="flip-inner">
+            <!-- Front face (initial state) -->
+            <div class="flip-front"></div>
+            <!-- Back face (hover state) -->
+            <div class="flip-back"></div>
+        </div>
+    </div>
+    <div class="text">9:50 pm: Stopped by hmart to get a sweet treat after class<br>Amount spent: $7.99<br>Total spent today: $64.54</div>
+</div>
+</body>
+</html>

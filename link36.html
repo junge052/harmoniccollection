@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <title>October 31, 2024</title>
+            <style>
+            @font-face {
+             font-family: 'Anthony';
+             src: url(fonts/Anthony.woff2);
+             src: url(fonts/Anthony.woff);
+         }  
+     .container{
+         display: flex;
+         align-items: flex-start;
+         padding: 20px;
+         justify-content: center;
+     }
+     .text{
+         margin-left: 12px;
+         font-family: Arial, Helvetica, sans-serif;
+         line-height: 1.6;
+     }
+     .header{
+         background-color: black;
+         color: white;
+         font-family: Anthony;
+         text-align: center;
+     }
+     body{
+         background-color: black;
+         color: white;
+     }
+     .flip-container {
+                perspective: 1000px; /* Gives a 3D effect */
+                width: 300px;
+                height: 500px;
+            }
+
+            /* Image container with flip effect */
+            .flip-container .flip-inner {
+                width: 100%;
+                height: 100%;
+                transition: transform 0.6s;
+                transform-style: preserve-3d; /* Maintain 3D space for children */
+            }
+            .flip-container .flip-inner .flip-front,
+            .flip-container .flip-inner .flip-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden; /* Hide the back side when flipped */
+            }
+            .flip-container .flip-inner .flip-front {
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url('receiptscans/WEEK10/oct31-crossroads.jpeg');
+                height: 500px; /* Default front image for container 1 */
+            }
+            .flip-container .flip-inner .flip-back {
+                background-size: cover;
+                background-position: center;
+                background-image: url('photos/crossroads.JPG'); /* Hover image for container 1 */
+                transform: rotateY(180deg); /* Initially hidden behind front */
+            }
+            .flip-container.second .flip-inner .flip-front {
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url('receiptscans/WEEK10/oct31-gothren.png');
+                height: 500px; /* Default front image for container 1 */
+            }
+            .flip-container.second .flip-inner .flip-back {
+                background-size: cover;
+                background-position: center;
+                background-image: url('photos/oct31bunny.JPG'); /* Hover image for container 1 */
+                transform: rotateY(180deg); /* Initially hidden behind front */
+            }
+            .flip-container.third .flip-inner .flip-front {
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url('receiptscans/WEEK10/oct31-reminiscence.png');
+                height: 500px; /* Default front image for container 1 */
+            }
+            .flip-container.third .flip-inner .flip-back {
+                background-size: cover;
+                background-position: center;
+                background-image: url('photos/oct31rem.JPG'); /* Hover image for container 1 */
+                transform: rotateY(180deg); /* Initially hidden behind front */
+            }
+            .flip-container.fourth .flip-inner .flip-front {
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url('receiptscans/WEEK10/oct31-chipotle.png');
+                height: 500px; /* Default front image for container 1 */
+            }
+            .flip-container.fourth .flip-inner .flip-back {
+                background-size: cover;
+                background-position: center;
+                background-image: url('photos/oct31chipotle.JPG'); /* Hover image for container 1 */
+                transform: rotateY(180deg); /* Initially hidden behind front */
+            }
+            .flip-container:hover .flip-inner {
+                transform: rotateY(180deg); /* Flip the container */
+            }
+         </style>
+    </head>
+<body>
+    <h1 class="header">October 31, 2024</h1>
+<div class="container">
+    <div class="flip-container">
+        <div class="flip-inner">
+            <!-- Front face (initial state) -->
+            <div class="flip-front"></div>
+            <!-- Back face (hover state) -->
+            <div class="flip-back"></div>
+        </div>
+    </div>
+    <div class="text">2:15 pm: Went to Crossroads to find last minute Halloween costumes<br>Amount spent: $81.37<br>Total spent today: $81.37</div>
+</div>
+<div class="container">
+    <div class="flip-container second">
+        <div class="flip-inner">
+            <!-- Front face (initial state) -->
+            <div class="flip-front"></div>
+            <!-- Back face (hover state) -->
+            <div class="flip-back"></div>
+        </div>
+    </div>
+    <div class="text">2:50 pm: Went to Gothic Renaissance to buy last minute Halloween costume<br>Amount spent: $14.15<br>Total spent today: $95.52</div>
+</div>
+<div class="container">
+    <div class="flip-container third">
+        <div class="flip-inner">
+            <!-- Front face (initial state) -->
+            <div class="flip-front"></div>
+            <!-- Back face (hover state) -->
+            <div class="flip-back"></div>
+        </div>
+    </div>
+    <div class="text">3:15 pm: Went to Reminiscence to buy more Halloween accessories<br>Amount spent: $10<br>Total spent today: $105.52</div>
+</div>
+<div class="container">
+<div class="flip-container fourth">
+    <div class="flip-inner">
+        <!-- Front face (initial state) -->
+        <div class="flip-front"></div>
+        <!-- Back face (hover state) -->
+        <div class="flip-back"></div>
+    </div>
+</div>
+<div class="text">5:36 pm: Got the $6 entree promotion at Chipotle for Halloween<br>Amount spent: $7.03<br>Total spent today: $112.55</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>September 6, 2024</title>
+            <style>
+            @font-face {
+             font-family: 'Anthony';
+             src: url('fonts/Anthony.woff2') format('woff2'),
+             url('fonts/Anthony.woff') format('woff');
+         }  
+     .container{
+         display: flex;
+         align-items: flex-start;
+         padding: 20px;
+         justify-content: center;
+     }
+     .text{
+         margin-left: 12px;
+         font-family: Arial, Helvetica, sans-serif;
+         line-height: 1.6;
+     }
+     .header{
+         background-color: black;
+         color: white;
+         font-family: Anthony;
+         text-align: center;
+     }
+     body{
+         background-color: black;
+         color: white;
+     }
+     .flip-container {
+                perspective: 1000px; /* Gives a 3D effect */
+                width: 300px;
+                height: 500px;
+            }
+
+            /* Image container with flip effect */
+            .flip-container .flip-inner {
+                width: 100%;
+                height: 100%;
+                transition: transform 0.6s;
+                transform-style: preserve-3d; /* Maintain 3D space for children */
+            }
+            .flip-container .flip-inner .flip-front,
+            .flip-container .flip-inner .flip-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden; /* Hide the back side when flipped */
+            }
+            .flip-container .flip-inner .flip-front {
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url('receiptscans/WEEK%202/sep6-brandy.jpeg');
+                height: 500px; /* Default front image for container 1 */
+            }
+            .flip-container .flip-inner .flip-back {
+                background-size: cover;
+                background-position: center;
+                background-image: url('photos/sep6.JPG'); /* Hover image for container 1 */
+                transform: rotateY(180deg); /* Initially hidden behind front */
+            }
+            .flip-container:hover .flip-inner {
+                transform: rotateY(180deg); /* Flip the container */
+            }
+         </style>
+    </head>
+<body>
+    <h1 class="header">September 6, 2024</h1>
+<div class="container">
+    <div class="flip-container">
+        <div class="flip-inner">
+            <!-- Front face (initial state) -->
+            <div class="flip-front"></div>
+            <!-- Back face (hover state) -->
+            <div class="flip-back"></div>
+        </div>
+    </div>
+    <div class="text">5 pm: Bought my friend's bday gift and an outfit to wear to her party<br>Amount spent: $58.05<br>Total spent today: $58.05</div>
+</div>
+</body>
+</html>

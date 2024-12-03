@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Emoji Animation</title>
+<style>
+    body{
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+    `   justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        animation: moveDown ease-in infinite alternate;
+        }
+    .emoji{
+        position: relative;
+        width: 100px;
+        animation: moveUpDown 3s ease-in-out forwards;
+    }
+    @keyframes moveUpDown{
+        0% {
+                transform: translateY(0); /* Start at the top */
+            }
+            50% {
+                transform: translateY(25vh); /* Middle position */
+            }
+            100% {
+                transform: translateY(0vh); /* Bottom position */
+            }
+    .emoji{
+        position: relative;
+        width: 100px;
+        animation: moveUpDown 3s ease-in-out forwards;
+    }
+    @keyframes moveUpDown{
+        0% {
+                transform: translateY(0); /* Start at the top */
+            }
+            50% {
+                transform: translateY(25vh); /* Middle position */
+            }
+            100% {
+                transform: translateY(0vh); /* Bottom position */
+            }
+
+    }
+
+</style>
+</head>
+<body>
+    <div>
+        <img src="Untitled-2.png" alt="emoji" class="emoji"
+        width="200px"
+    </div>
+    <div>
+        <img src="cash.png"
+        width="80px"
+    </div>
+</body>
+</html>

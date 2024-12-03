@@ -1,0 +1,158 @@
+<html>
+        <head>
+            <title>October 3, 2024</title>
+                <style>
+                @font-face {
+                 font-family: 'Anthony';
+                 src: url(fonts/Anthony.woff2);
+                 src: url(fonts/Anthony.woff);
+             }  
+         .container{
+             display: flex;
+             align-items: flex-start;
+             padding: 20px;
+             margin: 0 auto;
+             justify-content: center;
+         }
+         .text{
+             margin-left: 12px;
+             font-family: Arial, Helvetica, sans-serif;
+             line-height: 1.6;
+         }
+         .header{
+             background-color: black;
+             color: white;
+             font-family: Anthony;
+             text-align: center;
+         }
+         body{
+             background-color: black;
+             color: white;
+         }
+         /* 3D container for the flip effect */
+     .flip-container {
+                perspective: 1000px; /* Gives a 3D effect */
+                width: 300px;
+                height: 500px;
+            }
+
+            /* Image container with flip effect */
+            .flip-container .flip-inner {
+                width: 100%;
+                height: 100%;
+                transition: transform 0.6s;
+                transform-style: preserve-3d; /* Maintain 3D space for children */
+            }
+
+            /* Front and back faces of the flip */
+            .flip-container .flip-inner .flip-front,
+            .flip-container .flip-inner .flip-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden; /* Hide the back side when flipped */
+            }
+
+            /* Front face (initial image) */
+            .flip-container .flip-inner .flip-front {
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: url('receiptscans/WEEK6/oct3-poetica.png');
+                height: 500px; /* Default front image for container 1 */
+            }
+            /* Back face (hover image) */
+            .flip-container .flip-inner .flip-back {
+                background-size: cover;
+                background-position: center;
+                background-image: url('photos/poetica.JPG'); /* Hover image for container 1 */
+                transform: rotateY(180deg); /* Initially hidden behind front */
+            }
+            /* Second container images */
+            .flip-container.second .flip-inner .flip-front {
+                background-image: url('receiptscans/WEEK6/oct3-lusters.png');
+                height: 500px; /* Front image for container 2 */
+            }
+            .flip-container.second .flip-inner .flip-back {
+                background-image: url('photos/lusters.jpg');
+                height: 400px; /* Hover image for container 2 */
+            }
+            .flip-container.third .flip-inner .flip-front {
+                background-image: url('receiptscans/WEEK6/oct3-brandy.png');
+                height: 500px; /* Front image for container 2 */
+            }
+            .flip-container.third .flip-inner .flip-back {
+                background-image: url('photos/oct3-brandy.JPG');
+                height: 400px; /* Hover image for container 2 */
+            }
+            .flip-container.fourth .flip-inner .flip-front {
+                background-image: url('receiptscans/WEEK6/oct3.png');
+                height: 500px; /* Front image for container 2 */
+            }
+            .flip-container.fourth .flip-inner .flip-back {
+                background-image: url('photos/oct3.JPG');
+                height: 400px; /* Hover image for container 2 */
+            }
+            /* Hover effect to flip */
+            .flip-container:hover .flip-inner {
+                transform: rotateY(180deg); /* Flip the container */
+            }
+             </style>
+        </head>
+    <body>
+        <h1 class="header">October 3, 2024</h1>
+        <div class="container">
+              <!-- First Flip Container -->
+        <div class="flip-container">
+            <div class="flip-inner">
+                <!-- Front face (initial state) -->
+                <div class="flip-front"></div>
+                <!-- Back face (hover state) -->
+                <div class="flip-back"></div>
+            </div>
+        </div>
+        <div class="text">1:13 pm: Got a coffee at Poetica<br>
+            Amount spent: $5.86<br>
+            Total spent today: $5.86</div>
+        </div>    
+     <div class="container">
+        <div class="flip-container second">
+            <div class="flip-inner">
+                <!-- Front face (initial state) -->
+                <div class="flip-front"></div>
+                <!-- Back face (hover state) -->
+                <div class="flip-back"></div>
+            </div>
+        </div>
+        <div class="text">1:27 pm: Getting my long overdue film developed at Luster's<br>
+        Amount spent: $84.35<br>
+        Total spent: $90.21</div>
+    </div> 
+        <div class="container"> 
+            <div class="flip-container third">
+                <div class="flip-inner">
+                    <!-- Front face (initial state) -->
+                    <div class="flip-front"></div>
+                    <!-- Back face (hover state) -->
+                    <div class="flip-back"></div>
+                </div>
+            </div>
+            <div class="text">2 pm: Bought some clothes at Brandy<br>
+            Amount spent: $54<br>
+        Total spent: $144.21</div>
+        </div>
+            <div class="container"> 
+                <div class="flip-container fourth">
+                    <div class="flip-inner">
+                        <!-- Front face (initial state) -->
+                        <div class="flip-front"></div>
+                        <!-- Back face (hover state) -->
+                        <div class="flip-back"></div>
+                    </div>
+                    </div>
+            <div class="text">2:56 pm: Bought earrings to wear to the Kaytranada concert that's happening tomorrow (photo from the concert)<br>
+                Amount spent: $2.71<br>
+                Total spent today: $146.92</div>
+    </div>  
+    </body>
+    </html>
